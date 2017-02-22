@@ -1,6 +1,6 @@
 all: slides handout article compress clean
 
-projname = qc_talk_msd
+projname = diploma_talk
 compile = pdflatex
 
 slides: $(projname).header.tex $(projname).slides.tex $(projname).tex

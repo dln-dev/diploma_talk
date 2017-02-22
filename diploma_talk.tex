@@ -1,11 +1,11 @@
 \begin{document}
 
 \mode<presentation>{
-\title{Spin Networks for Perfect Quantum State Transfer}
+\title{Spin Networks for Perfect State Transfer}
 \author{dln-dev}
 \date{February 22nd 2017}
 %\logo{\includegraphics[width=\textwidth]{Images/switch_square}}
-\titlegraphic{\includegraphics[width=0.1\textwidth]{Images/switch_square}}
+\titlegraphic{\includegraphics[width=0.2\textwidth]{Images/switch_square}}
 
 \frame{\titlepage}
 }
@@ -63,7 +63,7 @@
    		\begin{exampleblock}{}
 			\setlength\abovedisplayskip{-8pt}
 			\begin{center}
-			\[H_{XX}=\frac{1}{2}J\sum_{i=1}^{N}{\left[\sigma_i^x\sigma_{i+1}^x + \sigma_i^y\sigma_{i+1}^y\right]}\]
+			\[H_{XX}=\frac{1}{2}J\sum_{i=1}^{N}{\left[\sigma_i^x\sigma_{i-1}^x + \sigma_i^y\sigma_{i-1}^y\right]}\]
 			\end{center}
 		\end{exampleblock}
 		\vspace*{0.5cm}
@@ -554,7 +554,7 @@
 	\centering
 	\includegraphics[trim=0 0 0 0mm, width=0.35\textwidth]{Images/method7-graph} 
 	\vspace*{-0.5cm}
-	\begin{align}
+	\begin{align*}
 	\begin{pmatrix}
 		y_1 & y_2 & y_3 \\
 		z_1 & z_2 & z_3 
@@ -594,8 +594,8 @@
 	\begin{pmatrix}
 		0 \\
 		1
-	\end{pmatrix}\,.\label{eq:method7}
-\end{align}
+	\end{pmatrix}\label{eq:method7}
+\end{align*}
 \end{frame}}
 
 
@@ -712,6 +712,8 @@
 		\item Method needs improvements
 		\item Realization of many networks questionable
 	\end{itemize}
+	\vspace*{2cm}
+	\uncover<2->{Thanks!}
 \end{frame}}
 
 
