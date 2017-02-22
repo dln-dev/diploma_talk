@@ -417,7 +417,7 @@
 		\end{center}
 		\end{column}
 	\end{columns}
-	$\tau_{s3} = \frac{\pi}{0.766}$
+	$\tau_{s32} = \frac{\pi}{0.766}$
 \end{frame}}
 
 \begin{center}
@@ -511,29 +511,35 @@
 \noindent text
 
 
-\mode<presentation>{\begin{frame}[t]{Higher Excitation Spaces}\label{hes}
+\mode<presentation>{\begin{frame}[t]{Network Construction}\label{construction4}
 	\centering
-	\Large
-	\begin{table}
-		\begin{tabular}{l | c }
-			Task & Complexity \\
-			\hline \hline
-			Discrete log & $\mathcal{O}(n^3)$ \\
-			Verify MatMult & $\mathcal{O}(n^\frac{5}{3})$ \\
-			$k$ Fake Coins & $\mathcal{O}(k^\frac{1}{4})$ \\
-			Factorization & $\mathcal{O}(n^3)$ \\
-			List search & $\mathcal{O}(\sqrt{n})$ 
-		\end{tabular}
-	%\caption{Complexity}
-	\end{table}
-	\normalsize
-	\begin{itemize}
-		\item Optimization
-		\item Big Data
-		\item Artificial Intelligence
-	\end{itemize}
-	\vspace*{0.5cm}
-	See \textsc{NIST} Quantum Algorithm Zoo for more
+	\includegraphics[trim=0 0 0 0mm, width=0.4\textwidth]{Images/method4-graph} \\
+	\begin{align*} 
+		\begin{pmatrix}
+			z_1 & z_2
+		\end{pmatrix} \cdot
+		\begin{pmatrix}
+			a_1 \\
+			a_2
+		\end{pmatrix}
+		\cdot 1 &\mbeq 1 \\
+		a_1 \cdot z_1 + a_2 \cdot z_2 &\mbeq 1
+	\end{align*}
+	\vspace*{-0.5cm}
+	\begin{columns}[T]
+		\begin{column}{0.33\textwidth}
+			\centering
+			\includegraphics[trim=0 0 0 0mm, width=0.9\textwidth]{Images/method4-solution-top-chain3}
+		\end{column}		
+		\begin{column}{0.33\textwidth}
+			\centering
+			\includegraphics[trim=0 0 0 0mm, width=0.9\textwidth]{Images/method4-solution-bottom-chain3}
+		\end{column}		
+		\begin{column}{0.33\textwidth}
+			\centering
+			\includegraphics[trim=0 0 0 0mm, width=1.1\textwidth]{Images/method4-solution-chain2square}
+		\end{column}
+	\end{columns}
 \end{frame}}
 
 
@@ -544,453 +550,11 @@
 \noindent text
 
 
-
-\subsection{Realization}
-
-\mode<presentation>{\begin{frame}[t]{D-Wave 2000Q}\label{dwave}
-	\begin{columns}[T]
-		\begin{column}{0.5\textwidth}
-			\centering
-			\includegraphics[trim=0 0 0 0mm, width=0.75\textwidth]{Images/d-wave2000q.jpg} \\
-			\includegraphics[trim=0 0 0 0mm, width=0.75\textwidth]{Images/d-wave-processor.jpg}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\centering
-			\begin{itemize}
-				\item Quantum Annealer
-				\item $2000$ squids 
-				\item $25$\,kW vs. $\mathcal{O}(1000)$\,kW
-				\item Temperature $0.015$\,K
-			\end{itemize}
-			\vspace*{0.5cm}
-    		\includegraphics[trim=0 0 0 0mm, width=0.9\textwidth]{Images/cryostate.jpg}
-		\end{column}
-	\end{columns}
-	\vspace*{0.5cm}
-	\footnotesize\textcolor{tugreen}{$\blacktriangleright$}\,\,\cite{Inc.2016}\normalsize
-\end{frame}}
-
-
-\begin{center}
-	\includeslide{dwave}
-\end{center}
-
-\noindent text
-
-
-\mode<presentation>{\begin{frame}{Universal QC}\label{uniqc}
-	\begin{columns}[T]
-		\begin{column}{0.5\textwidth}
-			\centering
-			NMR \\
-			\vspace{0.3cm}
-			\includegraphics[trim=0 0 0 0mm, width=0.75\textwidth]{Images/nmr-e3} \\
-			\includegraphics[trim=0 0 0 0mm, width=0.6\textwidth]{Images/nmr-alanine}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\centering
-			\uncover<2->{Transmons \\
-			\vspace{0.3cm}
-    		\includegraphics[trim=0 0 0 0mm, width=0.9\textwidth]{Images/ibm-cryo.jpg} \\
-    		\vspace*{1.0cm}
-    		\includegraphics[trim=0 0 0 0mm, width=0.95\textwidth]{Images/ibm-composer} \\
-    		Cloud-accessible!}
-		\end{column}
-	\end{columns}
-	\vspace*{0.3cm}
-	\footnotesize\textcolor{tugreen}{$\blacktriangleright$}\,\,\cite{Computing2017}\normalsize
-\end{frame}}
-
-\begin{center}
-	\includeslide{uniqc}
-\end{center}
-
-\noindent text
-
-\section{Spin Networks}
-
-\subsection{Role in Quantum Computing}
-
-\mode<presentation>{\begin{frame}[t]{QC Architecture}\label{architecture}
-	\begin{columns}[T]
-		\begin{column}{0.5\textwidth}
-			\centering
-   			\includegraphics[trim=0mm 0 0 0mm, width=0.7\textwidth]{Images/processor}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\vspace*{1.0cm}
-			\begin{itemize}
-    			\item Distributed components
-    			\item Smaller system size $\rightarrow$ less disturbance
-    			\item Quantum wires without external control
-    			\item Same material as processor
-    		\end{itemize}
-    		\vspace*{1.0cm}
-    		$\rightarrow$ Spin Networks
-		\end{column}
-	\end{columns}
-   	\footnotesize\textcolor{tugreen}{$\blacktriangleright$}\,\,\cite{Bose2014}\normalsize
-\end{frame}}
-
-
-\begin{center}
-	\includeslide{architecture}
-\end{center}
-
-\noindent text
-
-
-\mode<presentation>{\begin{frame}{Perfect State Transfer}\label{pst} %[fragile,t] for listings
-	\begin{exampleblock}{}
-	\setlength\abovedisplayskip{-8pt}
-	\begin{center}
-		\[H_{XX}=\frac{1}{2}J\sum_{i=1}^{N}{\left[\sigma_i^x\sigma_{i-1}^x + \sigma_i^y\sigma_{i-1}^y\right]}\]
-	\end{center}
-	\end{exampleblock} 
-	Perfect State Transfer happens if
-	\[ \mathfrak{F}(t) = \frac{\lvert f^N_{r,s}(t)\rvert\cos{\lambda}}{3} + \frac{\lvert f^N_{r,s}(t)\rvert^2}{6} + \frac{1}{2} = 1\]
-	\vspace*{-0.7cm}
-	\begin{exampleblock}{}
-	\setlength\abovedisplayskip{-8pt}
-	\begin{center}
-		\[\lvert f^N_{r,s}(t)\rvert = \lvert \braket{r|\text{e}^{-iHt}|s}\rvert = 1\]
-	\end{center}
-	\end{exampleblock}
-\end{frame}}
-
-\begin{center}
-	\includeslide{pst}
-\end{center}
-
-\noindent text
-
-
-\mode<presentation>{\begin{frame}{Graphs}\label{graphs}
-	\begin{exampleblock}{}
-	\setlength\abovedisplayskip{-8pt}
-	\begin{center}
-		$G = (V,E)$
-	\end{center}
-	\end{exampleblock}
-	Example: $V = \{1,2,3\}, E = \{\{1,2\},\{2,3\}\}$
-	\begin{center}
-		\includegraphics[trim=0mm 0 0 0mm, width=0.7\textwidth]{Images/chain3-graph}
-	\end{center}
-	Algebraic treatment through adjacency matrices:
-	\begin{exampleblock}{}
-	\setlength\abovedisplayskip{-8pt}
-	\begin{center}
-		$a_{ij} = \left\{
-	\begin{array}{ll}
-		1  & \{i,j\} \in E \\
-		0  & \text{otherwise}
-	\end{array}
-\right.$	
-	\end{center}
-	\end{exampleblock}
-\end{frame}}
-
-\begin{center}
-	\includeslide{graphs}
-\end{center}
-
-\noindent text
-
-
-\mode<presentation>{\begin{frame}{Examples}\label{adjexamples}
-	\begin{columns}[T]
-		\begin{column}{0.5\textwidth}
-			\centering
-			\vspace{1.5cm}
-   			\includegraphics[trim=0mm 0 0 0mm, width=0.7\textwidth]{Images/chain3} \\
-   			\vspace{1.0cm}
-   			\includegraphics[trim=0mm 0 0 0mm, width=0.7\textwidth]{Images/chain3-adjmat}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\centering
-   			\includegraphics[trim=0mm 0 0 0mm, width=0.6\textwidth]{Images/chain6vary-graph} \\
-   			\includegraphics[trim=0mm 0 0 0mm, width=0.7\textwidth]{Images/chain6vary-adjmat}
-		\end{column}
-	\end{columns}
-\end{frame}}
-
-\begin{center}
-	\includeslide{adjexamples}
-\end{center}
-
-\noindent text
-
-
-\subsection{Perfect State Transfer}
-
-\mode<presentation>{\begin{frame}{Identifying PST Graphs}\label{identifyPST}
-	\begin{exampleblock}{}
-	\setlength\abovedisplayskip{-8pt}
-	\begin{center}
-		$\text{e}^{-\text{i}H2t} \mbeq \text{1}$	
-	\end{center}
-	\end{exampleblock}
-	\begin{itemize}
-		\item Restrict $\mathcal{H}$ to single excitation space $\rightarrow$ adjacency matrix
-		\item PST then means
-			\begin{align*}
-	\begin{pmatrix}
-		1\\0\\0
-	\end{pmatrix}
-	\rightarrow
-	\begin{pmatrix}
-		0\\0\\1
-	\end{pmatrix}
-	\,\,\, \text{by} \,\,\,\, P_\pi = 
-	\begin{pmatrix}
-		0 & 0 & 1 \\
-		0 & 1 & 0 \\
-		1 & 0 & 0 \\
-	\end{pmatrix}
-			\end{align*}
-		\item Check time evolution at half that time
-	\end{itemize}
-	\begin{exampleblock}{}
-	\setlength\abovedisplayskip{-8pt}
-	\begin{center}
-		$\text{e}^{-\text{i}Ht} \mbeq P_\pi$	
-	\end{center}
-	\end{exampleblock}
-\end{frame}}
-
-\begin{center}
-	\includeslide{identifyPST}
-\end{center}
-
-\noindent text
-
-
-\mode<presentation>{\begin{frame}{Graph Product}\label{graphproduct}
-	\begin{exampleblock}{}
-	\setlength\abovedisplayskip{-8pt}
-	\begin{center}
-		$A_{G\times H} = A_G \otimes \text{1}_{\left|V_H\right|} + \text{1}_{\left|V_G\right|} \otimes A_H$
-	\end{center}
-	\end{exampleblock}
-	\begin{columns}[T]
-		\begin{column}{0.33\textwidth}
-			\centering
-   			\includegraphics[trim=0mm 0 0 0mm, width=1.0\textwidth]{Images/graphprod_chain3_square} \\
-		\end{column}
-		\begin{column}{0.33\textwidth}
-			\centering
-   			\includegraphics[trim=0mm 0 0 0mm, width=1.0\textwidth]{Images/graphprod_chain3_chain2_square} \\
-		\end{column}
-		\begin{column}{0.33\textwidth}
-			\centering
-   			\includegraphics[trim=0mm 0 0 0mm, width=1.0\textwidth]{Images/graphprod_switch_square.pdf} \\
-		\end{column}
-	\end{columns}
-\end{frame}}
-
-\begin{center}
-	\includeslide{graphproduct}
-\end{center}
-
-\noindent text
-
-
-\mode<presentation>{\begin{frame}{Graph Product}\label{graphproductfidelity}
-	\begin{exampleblock}{}
-	\setlength\abovedisplayskip{-8pt}
-	\begin{center}
-		$ f^{\left|V_{G\times H}\right|}_{(r,r'),(s,s')}(t) = f^{\left|V_G\right|}_{r,s}(t)\cdot f^{\left|V_H\right|}_{r',s'}(t) $
-	\end{center}
-	\end{exampleblock}
+\mode<presentation>{\begin{frame}[t]{Network Construction}\label{construction7}
+	\centering
+	\includegraphics[trim=0 0 0 0mm, width=0.35\textwidth]{Images/method7-graph} 
 	\vspace*{-0.5cm}
-	\begin{align*}
-		\left|f^{\left|V_G\right|}_{r,s}(t)\right| &= 1 \text{ for } t = \tau_G \\ 
-		\left|f^{\left|V_H\right|}_{r',s'}(t)\right| &= 1 \text{ for } t = \tau_H \\ 
-		\left|f^{\left|V_{G\times H}\right|}_{(r,r'),(s,s')}(t)\right| &= 1 \text{ for } t = \tau_{G\times H}
-	\end{align*}
-	\vspace*{-1.0cm}
-	\begin{exampleblock}{}
-	\setlength\abovedisplayskip{-8pt}
-	\begin{center}
-		$ \text{iff }\frac{\tau_G}{\tau_H} \in \mathbb{Q}$
-	\end{center}
-	\end{exampleblock}
-\end{frame}}
-
-\begin{center}
-	\includeslide{graphproductfidelity}
-\end{center}
-
-\noindent text
-
-
-\subsection{Quantum Routing}
-
-\mode<presentation>{\begin{frame}{Quantum Routing}\label{routing}
-	\begin{exampleblock}{}
-	\setlength\abovedisplayskip{-8pt}
-	\begin{center}
-		\[ H = \frac{1}{2}J\sum_{i=2}^{N}\left[\sigma_1^x\sigma_i^x + \sigma_1^y\sigma_i^y\right] + \sum_{i=1}^{N}h_i\sigma_i^z \]
-	\end{center}
-	\end{exampleblock}
-	\begin{columns}[T]
-		\begin{column}{0.5\textwidth}
-		\begin{center}
-			\includegraphics[trim=0mm 0 0 10mm, width=0.9\textwidth]{Images/switch_selfloops}
-		\end{center}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-		\vspace{1.0cm}
-		\begin{itemize}
-			\item Local magnetic fields
-			\item Diagonal entries in adjacency matrix
-			\item Global offset field allows switching
-		\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}}
-
-\begin{center}
-	\includeslide{routing}
-\end{center}
-
-\noindent text
-
-
-\mode<presentation>{\begin{frame}{Quantum Routing}\label{routing1}
-	\begin{columns}[T]
-		\begin{column}{0.5\textwidth}
-		\begin{center}
-			\includegraphics[trim=0mm 0 0 10mm, width=0.65\textwidth]{Images/switch_selfloops} \\
-			\vspace{0.5cm}
-			\includegraphics[trim=0mm 0 0 10mm, width=0.7\textwidth]{Images/switch-permutation}
-		\end{center}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-		\begin{center}
-			\includegraphics[trim=0mm 0 0 10mm, width=0.5\textwidth]{Images/switch_square.png} \\
-			\vspace{0.4cm}
-			\includegraphics[trim=0mm 0 0 10mm, width=0.8\textwidth]{Images/switchsquare-permutation}
-		\end{center}
-		\end{column}
-	\end{columns}
-\end{frame}}
-
-\begin{center}
-	\includeslide{routing1}
-\end{center}
-
-\noindent text
-
-
-\mode<presentation>{\begin{frame}{Quantum Routing}\label{routing2}
-	\begin{columns}[T]
-		\begin{column}{0.5\textwidth}
-		\begin{center}
-			\includegraphics[trim=0mm 0 0 10mm, width=0.65\textwidth]{Images/switch_selfloops} \\
-			\vspace{0.5cm}
-			\includegraphics[trim=0mm 0 0 10mm, width=0.7\textwidth]{Images/switch2-permutation}
-		\end{center}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-		\begin{center}
-			\includegraphics[trim=0mm 0 0 10mm, width=0.5\textwidth]{Images/switch_square.png} \\
-			\vspace{0.4cm}
-			\includegraphics[trim=0mm 0 0 10mm, width=0.8\textwidth]{Images/switchsquare2-permutation}
-		\end{center}
-		\end{column}
-	\end{columns}
-\end{frame}}
-
-\begin{center}
-	\includeslide{routing2}
-\end{center}
-
-\noindent text
-
-
-\subsection{Designing Networks}
-
-\mode<presentation>{\begin{frame}{Higher Excitation Spaces}\label{hes}
-	\begin{columns}[T]
-		\begin{column}{0.5\textwidth}
-		\begin{center}
-			\includegraphics[trim=0mm 0 0 0mm, width=1.0\textwidth]{Images/method4-solution-chain2square} \\
-			\includegraphics[trim=0mm 0 0 0mm, width=0.7\textwidth]{Images/chain2square-hes2-pst-marked}
-		\end{center}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-		\begin{center}
-			\includegraphics[trim=0mm 0 0 0mm, width=0.6\textwidth]{Images/chain2-cube} \\
-			\includegraphics[trim=0mm 0 0 0mm, width=0.7\textwidth]{Images/chain2cube-hes2}
-		\end{center}
-		\end{column}
-	\end{columns}
-\end{frame}}
-
-\begin{center}
-	\includeslide{hes}
-\end{center}
-
-\noindent text
-
-
-\mode<presentation>{\begin{frame}{Renormalization}\label{renormalization}
-	\begin{columns}[T]
-		\begin{column}{0.5\textwidth}
-		\begin{center}
-			\includegraphics[trim=0mm 0 0 0mm, width=1.0\textwidth]{Images/chain2-hypercube}
-		\end{center}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-		\begin{center}
-			\includegraphics[trim=0mm 0 0 0mm, width=0.85\textwidth]{Images/hypercube-to-perfect-couplings}
-		\end{center}
-		\end{column}
-	\end{columns}
-	\footnotesize\textcolor{tugreen}{$\blacktriangleright$}\,\,\cite{Christandl2005}\normalsize
-\end{frame}}
-
-\begin{center}
-	\includeslide{renormalization}
-\end{center}
-
-\noindent text
-
-
-\mode<presentation>{\begin{frame}{Renormalization}\label{renormalization2}	
-	\begin{columns}[T]
-		\begin{column}{0.5\textwidth}
-		\begin{center}
-			\includegraphics[trim=0mm 0 0 0mm, width=0.8\textwidth]{Images/eg-renorm-3}
-		\end{center}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-		\begin{center}
-			\includegraphics[trim=0mm 0 0 0mm, width=0.5\textwidth]{Images/eg-triplearmstar-uniform} \\
-			\vspace*{0.3cm}
-			\includegraphics[trim=0mm 0 0 0mm, width=0.45\textwidth]{Images/chain2square-hes2-pst-marked} \\
-			\vspace*{0.3cm}
-			\includegraphics[trim=0mm 0 0 0mm, width=0.5\textwidth]{Images/eg-pentaarmstar-uniform}
-		\end{center}
-		\end{column}
-	\end{columns}
-\end{frame}}
-
-\begin{center}
-	\includeslide{renormalization2}
-\end{center}
-
-\noindent text
-
-
-\mode<presentation>{\begin{frame}{Network Construction}\label{method}
-	\begin{columns}[T]
-		\begin{column}{0.5\textwidth}
-		\begin{center}
-			\includegraphics[trim=0mm 0 0 0mm, width=0.65\textwidth]{Images/method7-graph}
-		\end{center}
-		\begin{align*}
+	\begin{align}
 	\begin{pmatrix}
 		y_1 & y_2 & y_3 \\
 		z_1 & z_2 & z_3 
@@ -1010,40 +574,149 @@
 	\begin{pmatrix}
 		1 \\
 		0
+	\end{pmatrix} \\
+	\begin{pmatrix}
+		y_1 & y_2 & y_3 \\
+		z_1 & z_2 & z_3 
 	\end{pmatrix}
-\end{align*}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-		\begin{center}
-			\uncover<2->{\includegraphics[trim=0mm 0 0 0mm, width=0.5\textwidth]{Images/method7-solution-2chain3} \\
-			\vspace*{0.8cm}
-			\includegraphics[trim=0mm 0 0 0mm, width=0.45\textwidth]{Images/method7-solution-chain2square-hes2}}
-			%\vspace*{0.3cm}
-			%\includegraphics[trim=0mm 0 0 0mm, width=0.5\textwidth]{Images/eg-pentaarmstar-uniform}
-		\end{center}
-		\end{column}
-	\end{columns}
-
+	\cdot
+	\begin{pmatrix}
+		a_1 & b_1 \\
+		a_2 & b_2 \\
+		a_3 & b_3 
+	\end{pmatrix}
+	\cdot
+	\begin{pmatrix}
+		0 \\
+		1
+	\end{pmatrix}
+	&\mbeq
+	\begin{pmatrix}
+		0 \\
+		1
+	\end{pmatrix}\,.\label{eq:method7}
+\end{align}
 \end{frame}}
 
+
 \begin{center}
-	\includeslide{method}
+	\includeslide{strengths}
 \end{center}
 
 \noindent text
 
 
-\mode<presentation>{\begin{frame}{Conclusion}\label{conclusion}
-	\begin{itemize}
-		\item Exponential speedup for some problems
-		\item Some classical algorithms may be impossible to implement on QC
-		\item Designing networks for defined system topologies is possible 
-		\item Realization of most networks questionable		
-	\end{itemize}
+\mode<presentation>{\begin{frame}[t]{Network Construction}\label{construction4}
+	\centering
+	\begin{columns}[T]
+		\begin{column}{0.5\textwidth}
+			\centering
+			\includegraphics[trim=0 0 0 0mm, width=0.55\textwidth]{Images/method7-solution-2chain3} \\
+			\footnotesize
+			\begin{equation*}
+				\begin{pmatrix}
+				0 & 0 & 0 & 0 & 1 & 0 \\
+				0 & 0 & 0 & 0 & 0 & 1 \\
+				0 & 0 & 1 & 0 & 0 & 0 \\
+				0 & 0 & 0 & 1 & 0 & 0 \\
+				1 & 0 & 0 & 0 & 0 & 0 \\
+				0 & 1 & 0 & 0 & 0 & 0 
+				\end{pmatrix}
+			\end{equation*} \\
+			\normalsize
+			$\tau_{2c3} = \frac{\pi}{\sqrt{2}}$
+		\end{column}		
+		\begin{column}{0.5\textwidth}
+			\centering
+			\includegraphics[trim=0 0 0 0mm, width=0.75\textwidth]{Images/method7-chain2square-hes2-solution} \\
+			\footnotesize
+			\begin{equation*}
+				\begin{pmatrix}
+				0 & 0 & 0 & 0 & 1 & 0 \\
+				0 & 0 & 0 & 0 & 0 & -1 \\
+				0 & 0 & -1 & 0 & 0 & 0 \\
+				0 & 0 & 0 & -1 & 0 & 0 \\
+				1 & 0 & 0 & 0 & 0 & 0 \\
+				0 & -1 & 0 & 0 & 0 & 0 
+				\end{pmatrix}
+			\end{equation*} \\
+			\normalsize
+			$\tau_{c2h2} = \frac{\pi}{2}$
+		\end{column}
+	\end{columns}
 \end{frame}}
 
 \begin{center}
-	\includeslide{conclusion}
+	\includeslide{strengths}
+\end{center}
+
+\noindent text
+
+
+\mode<presentation>{\begin{frame}[t]{Network Construction}\label{construction4}
+	\centering
+	\begin{columns}[T]		
+		\begin{column}{0.5\textwidth}
+			\centering
+			\includegraphics[trim=0 0 0 0mm, width=0.8\textwidth]{Images/method7-solution-fullgraph} \\
+			\scriptsize
+			\begin{equation*} 
+			\begin{pmatrix}
+				\frac{1}{2} & 0 & 0 & 0 & -\frac{1}{2} & -\frac{1}{2} & -\frac{1}{2} \\
+				0 & \frac{1}{3} & -\frac{2}{3} & -\frac{2}{3} & 0 & 0 & 0 \\
+				0 & -\frac{2}{3} & \frac{1}{3} & -\frac{2}{3} & 0 & 0 & 0 \\
+				0 & -\frac{2}{3} & -\frac{2}{3} & \frac{1}{3} & 0 & 0 & 0 \\
+				-\frac{1}{2} & 0 & 0 & 0 & \frac{1}{2} & -\frac{1}{2} & -\frac{1}{2} \\
+				-\frac{1}{2} & 0 & 0 & 0 & -\frac{1}{2} & \frac{1}{2} & -\frac{1}{2} \\
+				-\frac{1}{2} & 0 & 0 & 0 & -\frac{1}{2} & -\frac{1}{2} & \frac{1}{2} 
+			\end{pmatrix}
+			\end{equation*} \\
+			\normalsize
+			$\tau_{k7b} = \frac{\pi}{\sqrt{12}}$
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\centering
+			\includegraphics[trim=0 0 0 0mm, width=0.8\textwidth]{Images/method7-full-graph-alt2} \\
+			\footnotesize
+			\begin{equation*}
+			\begin{pmatrix}
+				-\frac{1}{2} & 0 & 0 & 0 & -\frac{1}{2} & -\frac{1}{2} & -\frac{1}{2} \\
+				0 & -1 & 0 & 0 & 0 & 0 & 0 \\
+				0 & 0 & -1 & 0 & 0 & 0 & 0 \\
+				0 & 0 & 0 & -1 & 0 & 0 & 0 \\
+				-\frac{1}{2} & 0 & 0 & 0 & -\frac{1}{2} & \frac{1}{2} & \frac{1}{2} \\
+				-\frac{1}{2} & 0 & 0 & 0 & \frac{1}{2} & -\frac{1}{2} & \frac{1}{2} \\
+				-\frac{1}{2} & 0 & 0 & 0 & \frac{1}{2} & \frac{1}{2} & -\frac{1}{2} 
+			\end{pmatrix}
+			\end{equation*} \\
+			\normalsize
+			$\tau_{k7ba1} = \frac{\pi}{2}$
+		\end{column}
+	\end{columns}
+\end{frame}}
+
+\begin{center}
+	\includeslide{strengths}
+\end{center}
+
+\noindent text
+
+
+\subsection{Conclusion}
+
+\mode<presentation>{\begin{frame}[t]{Conclusion}\label{conclusion}
+	\centering
+	\vspace*{1.8cm}
+	\begin{itemize}
+		\item Designing networks for given topologies is possible
+		\item Method needs improvements
+		\item Realization of many networks questionable
+	\end{itemize}
+\end{frame}}
+
+
+\begin{center}
+	\includeslide{strengths}
 \end{center}
 
 \noindent text
