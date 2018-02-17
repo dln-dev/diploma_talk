@@ -10,5 +10,5 @@
 *.run.xml
 *.toc
 *.vrb
-
-*.pdf
+Refs/
+diploma*.pdf
